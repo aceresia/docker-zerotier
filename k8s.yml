@@ -1,0 +1,25 @@
+apiVersion: extensions/v1beta1
+kind: DaemonSet
+metadata:
+  labels:
+    app: zerotier
+  name: zerotier
+spec:
+  template:
+    metadata:
+      labels:
+        app: zerotier
+    spec:
+      hostNetwork: true
+      containers:
+        name: zerotier
+        image: larsla/docker-zerotier
+        volumeMounts:
+        - mountPath: /dev/net/tun
+          name: dev-tun
+        securityContext:
+          privileged: true
+      volumes:
+      - name: dev-tun
+        hostPath:
+          path: /dev/net/tun
