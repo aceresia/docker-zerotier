@@ -18,6 +18,5 @@ if [ -n "$MTU" ]; then
 fi
 
 while [ 1 ]; do
-  ip addr
   sleep 30
 done
