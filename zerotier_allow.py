@@ -29,8 +29,8 @@ r = requests.get('https://my.zerotier.com/api/network/%s/member/%s' % (
 
 data = r.json()
 
-if data['config']['authorized'] != "true":
-    data['config']['authorized'] = "true"
+if data['config']['authorized'] != True:
+    data['config']['authorized'] = True
 
     r = requests.post('https://my.zerotier.com/api/network/%s/member/%s' % (
                                                                            NETWORK,
